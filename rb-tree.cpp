@@ -112,8 +112,8 @@ int main(){
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	
-	system("title Бинарное дерево");
-	
+	system("title Р‘РёРЅР°СЂРЅРѕРµ РґРµСЂРµРІРѕ");
+	 
 	tree* node = nullptr;
 	tree* find = nullptr;
 	tree* head = nullptr;
@@ -124,7 +124,7 @@ int main(){
 	while (1){
 		system("cls");
 		if (node == nullptr){
-			cout << "Дерево пусто\n\n";
+			cout << "Р”РµСЂРµРІРѕ РїСѓСЃС‚Рѕ\n\n";
 			menu(1);
 			ch = getch();
 			
@@ -134,17 +134,17 @@ int main(){
 			}	
 		}
 		else{
-			//Выравниваем дерево
-			//свдигаем всех потомков
+			//Р’С‹СЂР°РІРЅРёРІР°РµРј РґРµСЂРµРІРѕ
+			//СЃРІРґРёРіР°РµРј РІСЃРµС… РїРѕС‚РѕРјРєРѕРІ
 			shiftNode(node->left);
 			shiftNode(node->right);
-			//левое
+			//Р»РµРІРѕРµ
 			alignTree_left(node->left);
-			//правое
+			//РїСЂР°РІРѕРµ
 			alignTree_right(node->right);
 			menu(2);
 			
-			paintCarcas(node); // строим каркас
+			paintCarcas(node); // СЃС‚СЂРѕРёРј РєР°СЂРєР°СЃ
 			if (find == nullptr) showTree_weightFirst(node, head, tail, 0);
 			else showTree_weightFirst(node, head, tail, find->val);
 			
@@ -159,7 +159,7 @@ int main(){
 		
 		switch (ch){			
 			case '1':
-				cout << "Вводите числа. Для завершения ввода нажмите Enter:\n";
+				cout << "Р’РІРѕРґРёС‚Рµ С‡РёСЃР»Р°. Р”Р»СЏ Р·Р°РІРµСЂС€РµРЅРёСЏ РІРІРѕРґР° РЅР°Р¶РјРёС‚Рµ Enter:\n";
 		
 				while (1){
 					temp = readInt();
@@ -173,27 +173,27 @@ int main(){
 			break;
 			
 			case '2':
-				cout << "Для удаления элемента введите его ключ\n";
+				cout << "Р”Р»СЏ СѓРґР°Р»РµРЅРёСЏ СЌР»РµРјРµРЅС‚Р° РІРІРµРґРёС‚Рµ РµРіРѕ РєР»СЋС‡\n";
 				
 				temp = readInt();
 				if (temp[0] == '\0') break;
 				ch = delNode(atoi(temp), node);
 				
 				if (!ch){
-					cout << "\nЭлемент с таким ключем не найден...\n\n";
+					cout << "\nР­Р»РµРјРµРЅС‚ СЃ С‚Р°РєРёРј РєР»СЋС‡РµРј РЅРµ РЅР°Р№РґРµРЅ...\n\n";
 					system("pause");
 				}
 			break;
 			
 			case '3':
-				cout << "Введите ключ искомого элемента\n";
+				cout << "Р’РІРµРґРёС‚Рµ РєР»СЋС‡ РёСЃРєРѕРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°\n";
 				
 				temp = readInt();
 				if (temp[0] == '\0') break;
 				find = findNode(atoi(temp), node);
 				
 				if (find == nullptr){
-					cout << "\nЭлемент с таким ключем не найден...\n\n";
+					cout << "\nР­Р»РµРјРµРЅС‚ СЃ С‚Р°РєРёРј РєР»СЋС‡РµРј РЅРµ РЅР°Р№РґРµРЅ...\n\n";
 					system("pause");
 				}
 			break;
@@ -207,21 +207,21 @@ int main(){
 			break;
 			
 			case '6':
-				cout << "Префиксная форма:\n\n";
+				cout << "РџСЂРµС„РёРєСЃРЅР°СЏ С„РѕСЂРјР°:\n\n";
 				showTree_prefix(node);
 				cout << "\n";
 				system("pause");
 			break;
 			
 			case '7':
-				cout << "Инфиксная форма:\n\n";
+				cout << "РРЅС„РёРєСЃРЅР°СЏ С„РѕСЂРјР°:\n\n";
 				showTree_infix(node);
 				cout << "\n";
 				system("pause");
 			break;
 			
 			case '8':
-				cout << "Постфиксная форма:\n\n";
+				cout << "РџРѕСЃС‚С„РёРєСЃРЅР°СЏ С„РѕСЂРјР°:\n\n";
 				showTree_postfix(node);
 				cout << "\n";
 				system("pause");
@@ -231,7 +231,7 @@ int main(){
 				delTree(node);
 				node = nullptr;
 				
-				cout << "Дерево удалено...\n\n";
+				cout << "Р”РµСЂРµРІРѕ СѓРґР°Р»РµРЅРѕ...\n\n";
 				system("pause");
 			break;
 			
@@ -239,7 +239,7 @@ int main(){
 				return 0;
 		}
 		
-		//Поднимаем корень
+		//РџРѕРґРЅРёРјР°РµРј РєРѕСЂРµРЅСЊ
 		while ((node != nullptr) && (node->parent != nullptr)) node = node->parent;
 	}
 } //main
@@ -286,7 +286,7 @@ void showTree_weightFirst(tree* node, tree*& head, tree*& tail, int max){
 	if (head == nullptr) flag = 1;
 	
 //	sleep(1);
-	itoa(node->val, strPrint, 10);//value в строку
+	itoa(node->val, strPrint, 10);//value РІ СЃС‚СЂРѕРєСѓ
 	
 	if (node->val == max){
 		brush = CreateSolidBrush(RGB(0, 255, 0));
@@ -380,7 +380,7 @@ void addNode(int value, tree*& node, tree* parent){
 			
 			node->line = parent->line + STEPY;
 		}
-		//оптимизация. Случай 1
+		//РѕРїС‚РёРјРёР·Р°С†РёСЏ. РЎР»СѓС‡Р°Р№ 1
 		insert_case1(node);
 		
 		return;
@@ -450,9 +450,9 @@ int delNode(int value, tree*& node){
 	}
 	
 	if (node->val == value){		
-		//Если это лист
+		//Р•СЃР»Рё СЌС‚Рѕ Р»РёСЃС‚
 		if ((node->left == nullptr) && (node->right == nullptr)){
-			//Если корень
+			//Р•СЃР»Рё РєРѕСЂРµРЅСЊ
 			if (node->parent == nullptr){
 				p = node;
 				node = nullptr;
@@ -469,7 +469,7 @@ int delNode(int value, tree*& node){
 				return 1;
 			}
 		}
-		//Если есть оба потомока
+		//Р•СЃР»Рё РµСЃС‚СЊ РѕР±Р° РїРѕС‚РѕРјРѕРєР°
 		if ((node->left != nullptr) && (node->right != nullptr)){
 			
 			p = findMax(node->left);
@@ -478,7 +478,7 @@ int delNode(int value, tree*& node){
 			delNode(p->val, p);
 			return 1;
 		}
-		else{//Если один потомок
+		else{//Р•СЃР»Рё РѕРґРёРЅ РїРѕС‚РѕРјРѕРє
 			if (node->left != nullptr){
 				p = findMax(node->left);
 				node->val = p->val;
@@ -626,11 +626,11 @@ void alignTree_left(tree* node){
 	countSteps_left(steps, node->parent->right);
 	node->col -= steps*STEPX;
 	
-	//свдигаем всех потомков
+	//СЃРІРґРёРіР°РµРј РІСЃРµС… РїРѕС‚РѕРјРєРѕРІ
 	shiftNode(node->left);
 	shiftNode(node->right);
 	
-	//продолжаем сдвигать по шагам
+	//РїСЂРѕРґРѕР»Р¶Р°РµРј СЃРґРІРёРіР°С‚СЊ РїРѕ С€Р°РіР°Рј
 	alignTree_left(node->left);
 	if (node->right != nullptr)	alignTree_left(node->right->left);
 }
@@ -643,11 +643,11 @@ void alignTree_right(tree* node){
 	countSteps_right(steps, node->parent->left);
 	node->col += steps*STEPX;
 	
-	//свдигаем всех потомков
+	//СЃРІРґРёРіР°РµРј РІСЃРµС… РїРѕС‚РѕРјРєРѕРІ
 	shiftNode(node->left);
 	shiftNode(node->right);
 	
-	//продолжаем сдвигать по шагам
+	//РїСЂРѕРґРѕР»Р¶Р°РµРј СЃРґРІРёРіР°С‚СЊ РїРѕ С€Р°РіР°Рј
 	alignTree_right(node->right);
 	if (node->left != nullptr)	alignTree_right(node->left->right);
 }
@@ -693,7 +693,7 @@ void rotate_left(tree* node){
 	
 	if (pivot == nullptr) return;
 	
-	//Меняем родителя node
+	//РњРµРЅСЏРµРј СЂРѕРґРёС‚РµР»СЏ node
 	pivot->parent = node->parent;
 	
 	if (node->parent != nullptr){
@@ -702,16 +702,16 @@ void rotate_left(tree* node){
 		else node->parent->right = pivot;
 	}
 	
-	//Меняем потомка pivot
+	//РњРµРЅСЏРµРј РїРѕС‚РѕРјРєР° pivot
 	node->right = pivot->left;
 	if (pivot->left != nullptr)
 		pivot->left->parent = node;
 	
-	//меняем местами node and pivot
+	//РјРµРЅСЏРµРј РјРµСЃС‚Р°РјРё node and pivot
 	node->parent = pivot;
 	pivot->left = node;
 	
-	//координаты
+	//РєРѕРѕСЂРґРёРЅР°С‚С‹
 	node->line += STEPY;
 	pivot->line -=STEPY;
 	riseTree(pivot->right);
@@ -724,7 +724,7 @@ void rotate_right(tree* node){
 	pivot = node->left;
 	if (pivot == nullptr) return;
 	
-	//Меняем родителя node
+	//РњРµРЅСЏРµРј СЂРѕРґРёС‚РµР»СЏ node
 	pivot->parent = node->parent;
 	
 	if (node->parent != nullptr){
@@ -733,16 +733,16 @@ void rotate_right(tree* node){
 		else node->parent->right = pivot;
 	}
 	
-	//Меняем потомка pivot
+	//РњРµРЅСЏРµРј РїРѕС‚РѕРјРєР° pivot
 	node->left = pivot->right;
 	if (pivot->right != nullptr)
 		pivot->right->parent = node;
 	
-	//меняем местами node and pivot
+	//РјРµРЅСЏРµРј РјРµСЃС‚Р°РјРё node and pivot
 	node->parent = pivot;
 	pivot->right = node;
 	
-	//координаты
+	//РєРѕРѕСЂРґРёРЅР°С‚С‹
 	node->line += STEPY;
 	pivot->line -= STEPY;
 	riseTree(pivot->left);
@@ -802,24 +802,24 @@ void downTree(tree* node){
 void menu(int p){
 	int i = 1;
 	if (p == 1){
-		cout << i++ << ".   Добавить элементы в дерево.\n";
-		cout << "Esc. Завершить программу.\n";
+		cout << i++ << ".   Р”РѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚С‹ РІ РґРµСЂРµРІРѕ.\n";
+		cout << "Esc. Р—Р°РІРµСЂС€РёС‚СЊ РїСЂРѕРіСЂР°РјРјСѓ.\n";
 		cout << "\n";
 		return;
 	}
 	
 	if (p == 2){
-		cout << i++ << ".   Добавить элементы в дерево\n";
-		cout << i++ << ".   Удалить элемент по ключу\n";
-		cout << i++ << ".   Найти элемент по ключу\n";
-		cout << i++ << ".   Найти максимальный элемент\n";//4
-		cout << i++ << ".   Найти минимальный элемент\n";
-		cout << i++ << ".   Вывести дерево в префиксной форме\n";
-		cout << i++ << ".   Вывести дерево в инфиксной форме\n";
-		cout << i++ << ".   Вывести дерево в постфиксной форме\n";
-		cout << i++ << ".   Удалить дерево\n";//9
+		cout << i++ << ".   Р”РѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚С‹ РІ РґРµСЂРµРІРѕ\n";
+		cout << i++ << ".   РЈРґР°Р»РёС‚СЊ СЌР»РµРјРµРЅС‚ РїРѕ РєР»СЋС‡Сѓ\n";
+		cout << i++ << ".   РќР°Р№С‚Рё СЌР»РµРјРµРЅС‚ РїРѕ РєР»СЋС‡Сѓ\n";
+		cout << i++ << ".   РќР°Р№С‚Рё РјР°РєСЃРёРјР°Р»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚\n";//4
+		cout << i++ << ".   РќР°Р№С‚Рё РјРёРЅРёРјР°Р»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚\n";
+		cout << i++ << ".   Р’С‹РІРµСЃС‚Рё РґРµСЂРµРІРѕ РІ РїСЂРµС„РёРєСЃРЅРѕР№ С„РѕСЂРјРµ\n";
+		cout << i++ << ".   Р’С‹РІРµСЃС‚Рё РґРµСЂРµРІРѕ РІ РёРЅС„РёРєСЃРЅРѕР№ С„РѕСЂРјРµ\n";
+		cout << i++ << ".   Р’С‹РІРµСЃС‚Рё РґРµСЂРµРІРѕ РІ РїРѕСЃС‚С„РёРєСЃРЅРѕР№ С„РѕСЂРјРµ\n";
+		cout << i++ << ".   РЈРґР°Р»РёС‚СЊ РґРµСЂРµРІРѕ\n";//9
 //		cout << "\n";
-		cout << "Esc. Завершить программу\n\n";
+		cout << "Esc. Р—Р°РІРµСЂС€РёС‚СЊ РїСЂРѕРіСЂР°РјРјСѓ\n\n";
 		return;
 	}
 }
